@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  db:
+    # enable platform when your device as AppleSilicon
+    platform: linux/x86_64
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    command: mysqld --innodb_use_native_aio=0
